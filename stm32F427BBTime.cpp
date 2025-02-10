@@ -246,12 +246,12 @@ namespace otawa { namespace stm32 {
 				throw ProcessorException(*this, "Cache support is not implemented for the Cortex M4");
 
 			if (write_log) {
-				sys::Path log_file_path = sys::Path(ws->process()->program_name()() + ".log");
+				sys::Path log_file_path = sys::Path(ws->process()->program_name() + ".log");
 				bool write_header = (log_file_path.exists()) ? false : true;
 				log_stream = new FileOutput(log_file_path, true);
 				if (write_header)
 					*log_stream << "########################################################" << endl
-								<< "# Static analysis on " << ws->process()->program_name()() << endl
+								<< "# Static analysis on " << ws->process()->program_name() << endl
 								<< "# Overestimated instructions" << endl
 								<< "# Address (hex); Instruction" << endl
 								<< "########################################################" << endl;
